@@ -36,8 +36,8 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #007bff; /* 호버 시 배경색 */
-    color: #ffffff; /* 호버 시 글자 색상 */
+    background-color: #007bff;
+    color: #ffffff;
 }
 
 .container {
@@ -83,6 +83,29 @@ h2 {
     color: #888;
     font-size: 0.9em;
     margin-bottom: 5px;
+}
+
+/* Create Post Button */
+button.create-post-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.create-post-btn:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button.create-post-btn:active {
+    background-color: #1e7e34;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 footer {
