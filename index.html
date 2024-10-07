@@ -1,1 +1,61 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Blog</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script>
+        // 게시글 목록 불러오기
+        window.onload = function() {
+            const postList = document.getElementById('postList');
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+            if (posts.length === 0) {
+                postList.innerHTML = '<p>No posts available. Please create a new post.</p>';
+            } else {
+                posts.forEach(function(post, index) {
+                    const postItem = document.createElement('li');
+                    postItem.innerHTML = `
+                        <a href="post-detail.html?id=${index}">
+                            <h3>${post.title}</h3>
+                            <p class="post-meta">Published on ${post.date}</p>
+                            <p>${post.content.substring(0, 100)}...</p>
+                        </a>
+                    `;
+                    postList.appendChild(postItem);
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Developer Blog</h1>
+        <nav>
+            <a href="create-post.html">Create New Post</a>
+            <a href="#posts">Blog Posts</a>
+            <a href="#about">About Me</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="posts">
+            <h2>Blog Posts</h2>
+            <ul id="postList" class="post-list">
+                <!-- 게시글 목록이 여기에 동적으로 추가됩니다 -->
+            </ul>
+            <button onclick="window.location.href='create-post.html'">Create New Post</button>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>안녕하세요! 저는 Unity 게임 개발자이자 웹 개발자입니다. 제 블로그를 통해 다양한 개발 경험을 공유하고 있습니다.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Developer Blog | Designed by Me</p>
+    </footer>
+</body>
+</html>
